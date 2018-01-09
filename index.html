@@ -1,0 +1,175 @@
+<html>
+    <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <style>
+
+        body {
+
+            background-color: #f4f4f4;
+        }
+
+        .dropdown-list .dropdown-item img {
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            margin-top: -16.5px;
+            width: 42px;
+            height: 40px;
+        }
+
+        .dropdown-list {
+            margin: 0 0 60px;
+            text-align: left;
+            background-color: #f4f4f4;
+            font-family: Circular,Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #222326;
+        }
+
+        .dropdown-list .dropdown-item-content {
+            display: none;
+            margin-top: -10px;
+        }
+
+        .dropdown-list .dropdown-item {
+            position: relative;
+            display: block;
+            padding-left: 20px;
+            margin-bottom: -1px;
+            border: 1px solid #d9dadc;
+        }
+
+        .dropdown-list .dropdown-item:hover {
+            background-color: #f8f8f8;
+        }
+
+        .dropdown-list p {
+            width: 90%;
+        }
+
+        .dropdown-list {
+            cursor: pointer;
+        }
+
+        .container {
+            margin: auto;
+            width: 1000px;
+        }
+
+    </style>
+    </head>
+
+    <body>
+    <div class="container">
+        <div class="dropdown-list">
+        <div id="dropdown-list-adwords" class="dropdown-item">
+            <h3>
+                Do you support multiple domains per AdWords account?
+
+            </h3>
+            <img src="down.png">
+            <div class="dropdown-item-content">
+                <p>
+                    Yes! Spend will be summed and calculated for all websites together.
+                </p>
+            </div>
+        </div>
+        <div id="dropdown-list-payments" class="dropdown-item">
+            <h3>
+                What are your available payment methods?
+
+            </h3>
+            <img src="down.png">
+            <div class="dropdown-item-content">
+                <p>
+                    We support all major credit cards (Visa, Mastercard, AMEX, Maestro and Discover), Bitcoin and PayPal.
+                </p>
+            </div>
+        </div>
+        <div id="dropdown-list-budget" class="dropdown-item">
+        <h3>
+            What if I cut my AdWords Budget to be lower?
+            <img src="down.png">
+        </h3>
+
+        <div class="dropdown-item-content">
+            <p>
+                It’s very easy to downgrade your package in the user dashboard.
+            </p>
+        </div>
+    </div>
+        <div id="dropdown-list-contract" class="dropdown-item">
+            <h3>
+                Do I have to sign a 12 month contract?
+                <img src="down.png">
+            </h3>
+
+            <div class="dropdown-item-content">
+                <p>
+                    We don’t make you sign any yearly or quarterly contracts and all our packages are month to month, which means you can cancel at any time.
+                </p>
+            </div>
+        </div>
+        <div id="dropdown-list-mcc" class="dropdown-item">
+            <h3>
+                Do you support MCC accounts?
+                <img src="down.png">
+            </h3>
+
+            <div class="dropdown-item-content">
+                <p>
+                    Yes. All of our packages are limited through spend. This means your linked adWords account can have as many campaigns and website as you need within your spend.
+                </p>
+            </div>
+        </div>
+        <div id="dropdown-list-mcc" class="dropdown-item">
+            <h3>
+                What if my AdWords budget goes over my limit?
+                <img src="down.png">
+            </h3>
+
+            <div class="dropdown-item-content">
+                <p>
+                    If your adWords budget exceeds your plan’s maximum then we’ll only protect up to the maximum for your current plan. We’ll then send you an email notifying you and suggesting you upgrade your subscription. The payment for your updated subscription will be calculated depending on the days left in your monthly billing period.
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </body>
+    <script>
+
+        $(".dropdown-item").click(function() {
+
+            var active =  $(this).find(".dropdown-item-content").css("display");
+
+            if(active === "block") {
+                $(".dropdown-item").find(".dropdown-item-content").toggle(false);
+                $(this).find("img").css("transform","rotate(360deg)");
+                $(this).find("img").css("top", "50%");
+                return;
+            }
+
+            $(".dropdown-item").find("img").css("top", "50%");
+            $(".dropdown-item").find("img").css("transform", "rotate(360deg)");
+            $(".dropdown-item").find(".dropdown-item-content").toggle(false);
+            $(this).find(".dropdown-item-content").css("display", "block");
+            $(this).find("img").css("transform", "rotate(180deg)");
+            $(this).find("img").css("top", "25%");
+
+        });
+
+        $(document).on('click', function (e) {
+
+            if(e.target.localName === "body") {
+                console.log("lost focus");
+                $(".dropdown-item").find("img").css("top", "50%");
+                $(".dropdown-item").find("img").css("transform", "rotate(360deg)");
+                $(".dropdown-item").find(".dropdown-item-content").toggle(false);
+                $(".dropdown-item").css("top", "25%");
+            }
+        });
+
+    </script>
+</html>
